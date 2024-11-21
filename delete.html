@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Bunkr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .note {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Your Account on Bunkr</h1>
+    <p>If you would like to delete your account, please fill out the form below. Your email client will open with a pre-filled message to request account deletion.</p>
+    <p class="note">Note: Certain data may be retained as required by law or for legitimate business purposes (e.g., financial records for tax compliance).</p>
+
+    <form id="delete-account-form" onsubmit="sendEmail(event)">
+        <label for="name">Full Name (as registered on Bunkr):</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email Address (used for Bunkr login):</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="reason">Reason for Account Deletion (optional):</label>
+        <textarea id="reason" name="reason" placeholder="Let us know why you're leaving" rows="4"></textarea>
+
+        <button type="submit">Request Account Deletion</button>
+    </form>
+
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const reason = document.getElementById('reason').value;
+
+            // Create mailto link
+            const mailtoLink = `mailto:bunkrindia@gmail.com?subject=Account Deletion Request&body=Hello,%0D%0A%0D%0AI would like to request the deletion of my account.%0D%0A%0D%0AFull Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AReason: ${encodeURIComponent(reason)}%0D%0A%0D%0AThank you.`;
+
+            // Redirect to mailto link
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
