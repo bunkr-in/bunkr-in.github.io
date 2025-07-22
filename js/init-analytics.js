@@ -46,5 +46,12 @@
 posthog.init("phc_gVFs7JIP2mJyRIXh6McSbzd34QWcc7zOhmTayqkl3Iv", {
   api_host: "https://us.i.posthog.com",
   defaults: "2025-05-24",
-  person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+  person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
+  custom_campaign_params: [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+  ],
 });
